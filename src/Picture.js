@@ -1,12 +1,12 @@
 class Picture {
-  constructor({id, photographer, description, url, like_count, comments }){
-      this.id = id
-      this.photographer = photographer
-      this.description = description
-      this.url = url
-      this.likeCount = like_count
 
-      this.comments = comments.map(commentData => new Comment(commentData))
+  constructor({id, photographer, description, url, like_count, comments }){
+      this.id = id;
+      this.photographer = photographer;
+      this.description = description;
+      this.url = url;
+      this.likeCount = like_count;
+      this.comments = comments.map(commentData => new Comment(commentData));
   }
 
   createPictureHTML(){
@@ -18,13 +18,15 @@ class Picture {
        <li>${this.photographer}</li>
        <li>${this.likeCount}</li>
        <ul>
-        ${this.comments.map(comment => comment.createCommentHTML())}
+        ${this.renderComments()}
       </ul>
       </ul>
     </li>
-    `
+    `;
   }
 
-
+  renderComments(){
+    return this.comments.map(comment => comment.createCommentHTML()).join("");
+  }
 
 }
