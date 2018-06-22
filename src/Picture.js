@@ -20,6 +20,10 @@ class Picture {
        <ul>
         ${this.comments.map(comment => comment.createCommentHTML())}
       </ul>
+      <form class="comment-form" data-picture-id="${this.id}">
+        <input id="comment-input-${this.id}" type="text" name="comment" placeholder="Add Comment"/>
+        <input type="submit" value="Submit"/>
+      </form>
       </ul>
     </li>
     `
